@@ -1,11 +1,9 @@
 locals {
   public_repositories = {
-    # Add repositories here, e.g.:
-    # "my-project" = {
-    #   description = "What it does"
-    #   visibility  = "private"
-    #   topics      = ["go"]
-    # }
+    "mise-agents" = {
+      description = ""
+      topics      = []
+    }
   }
 }
 
@@ -31,7 +29,7 @@ resource "github_repository" "public" {
 
   name        = each.key
   description = each.value.description
-  visibility  = each.value.visibility
+  visibility  = "public"
   topics      = each.value.topics
 
   has_issues   = true
@@ -43,4 +41,11 @@ resource "github_repository" "public" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+output "github_repository_node_ids" {
+  value = merge(
+    { (github_repository.this.name) = github_repository.this.node_id },
+    { for name, repository in github_repository.public : name => repository.node_id },
+  )
 }
