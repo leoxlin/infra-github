@@ -52,26 +52,29 @@ locals {
       description = "A harness agnostic agent orchestration framework"
       topics      = []
     }
-    "sql-mysteries" = {
-      description = "Inspired by @veltman's command-line mystery, use SQL to research clues and find out whodunit!"
-      topics      = []
-    }
     "superpowers" = {
       description = "An agentic skills framework & software development methodology that works."
-      topics      = []
-    }
-    "terraform-provider-kong" = {
-      description = "kong provider for terraform"
-      topics      = []
-    }
-    "vcredist" = {
-      description = "AIO Repack for latest Microsoft Visual C++ Redistributable Runtimes"
       topics      = []
     }
 
     // Archived Repos
     "naive-bayes-food" = {
       description = "Tastiest application of the naive bayes classifier"
+      topics      = []
+      archived    = true
+    }
+    "sql-mysteries" = {
+      description = "Inspired by @veltman's command-line mystery, use SQL to research clues and find out whodunit!"
+      topics      = []
+      archived    = true
+    }
+    "terraform-provider-kong" = {
+      description = "kong provider for terraform"
+      topics      = []
+      archived    = true
+    }
+    "vcredist" = {
+      description = "AIO Repack for latest Microsoft Visual C++ Redistributable Runtimes"
       topics      = []
       archived    = true
     }
