@@ -1,8 +1,79 @@
 locals {
   public_repositories = {
+    "calamari" = {
+      description = "A trmnl server based on BYOS Next.js"
+      topics      = []
+    }
+    "diataxis-documentation-framework" = {
+      description = "A systematic approach to creating better documentation."
+      topics      = []
+    }
+    "gnosis" = {
+      description = "Agentic memory for extracting, indexing, and retrieving knowledge."
+      topics      = []
+    }
+    "homelab" = {
+      description = "Mirrored from https://git.hydrahmlb.dev/leoxlin/homelab"
+      topics      = []
+    }
+    "homebase" = {
+      description = "Home is where the configs are"
+      topics      = []
+    }
+    "jetson-orin-kernel-builder" = {
+      description = "Build the Linux kernel and modules on board the Jetson AGX Orin, Orin Nano or Orin NX"
+      topics      = []
+    }
+    "kimi-code" = {
+      description = "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      topics      = []
+    }
+    "leoxlin" = {
+      description = "Welcome to my github profile"
+      topics      = []
+    }
+    "lfg" = {
+      description = "Fastest way to get your agent ducks in order"
+      topics      = []
+    }
+    "mailmon" = {
+      description = "Email management and monitoring with JMAP"
+      topics      = []
+    }
     "mise-agents" = {
       description = ""
       topics      = []
+    }
+    "ponytail" = {
+      description = "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote."
+      topics      = []
+    }
+    "praxis" = {
+      description = "A harness agnostic agent orchestration framework"
+      topics      = []
+    }
+    "sql-mysteries" = {
+      description = "Inspired by @veltman's command-line mystery, use SQL to research clues and find out whodunit!"
+      topics      = []
+    }
+    "superpowers" = {
+      description = "An agentic skills framework & software development methodology that works."
+      topics      = []
+    }
+    "terraform-provider-kong" = {
+      description = "kong provider for terraform"
+      topics      = []
+    }
+    "vcredist" = {
+      description = "AIO Repack for latest Microsoft Visual C++ Redistributable Runtimes"
+      topics      = []
+    }
+
+    // Archived Repos
+    "naive-bayes-food" = {
+      description = "Tastiest application of the naive bayes classifier"
+      topics      = []
+      archived    = true
     }
   }
 }
@@ -31,6 +102,7 @@ resource "github_repository" "public" {
   description = each.value.description
   visibility  = "public"
   topics      = each.value.topics
+  archived    = try(each.value.archived, false)
 
   has_issues   = true
   has_projects = false
