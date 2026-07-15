@@ -19,6 +19,14 @@ locals {
       description = "Mise backend for managing AI Coding Agents"
       topics      = ["config", "mise"]
     }
+    "mise-agent-skills" = {
+      description = "Mise backend for managing AI coding agent skills"
+      topics      = ["ai", "agent", "mise", "skills"]
+    }
+    "mise-agent-plugins" = {
+      description = "Mise backend for managing AI coding agent plugins"
+      topics      = ["ai", "agent", "mise", "plugins"]
+    }
 
     // Agent Tools
     "lfg" = {
