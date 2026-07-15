@@ -118,6 +118,6 @@ resource "github_repository" "public" {
 output "github_repository_node_ids" {
   value = merge(
     { (github_repository.this.name) = github_repository.this.node_id },
-    { for name, repository in github_repository.public : name => repository.node_id },
+    { for name, repository in github_repository.public : name => repository.node_id if !repository.archived },
   )
 }
