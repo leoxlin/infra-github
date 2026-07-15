@@ -1,63 +1,73 @@
 locals {
   public_repositories = {
-    "calamari" = {
-      description = "A trmnl server based on BYOS Next.js"
+    // Documentation
+    "leoxlin" = {
+      description = "Welcome to my github profile"
       topics      = []
     }
     "diataxis-documentation-framework" = {
       description = "A systematic approach to creating better documentation."
       topics      = []
     }
+
+    // Config Management
+    "homebase" = {
+      description = "Home is where the configs are"
+      topics      = ["config", "dotfiles"]
+    }
+    "mise-agents" = {
+      description = "Mise backend for managing AI Coding Agents"
+      topics      = ["config", "mise"]
+    }
+
+    // Agent Tools
+    "lfg" = {
+      description = "Fastest way to get your agent ducks in order"
+      topics      = ["ai", "agent", "entrypoint"]
+    }
     "gnosis" = {
       description = "Agentic memory for extracting, indexing, and retrieving knowledge."
+      topics      = ["ai", "agent", "memory"]
+    }
+    "praxis" = {
+      description = "A harness agnostic agent orchestration framework"
+      topics      = ["ai", "agent", "orchestrator"]
+    }
+    "kimi-code" = {
+      description = "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
       topics      = []
+    }
+
+
+    // Agent Skills
+    "ponytail" = {
+      description = "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote."
+      topics      = ["ai", "agent", "skills"]
+    }
+    "superpowers" = {
+      description = "An agentic skills framework & software development methodology that works."
+      topics      = ["ai", "agent", "skills"]
+    }
+
+    // Homelab
+    "calamari" = {
+      description = "A trmnl server based on BYOS Next.js"
+      topics      = ["homelab", "trmnl", "js"]
     }
     "homelab" = {
       description = "Mirrored from https://git.hydrahmlb.dev/leoxlin/homelab"
-      topics      = []
+      topics      = ["homelab", "infra", "ansible", "k8s"]
     }
-    "homebase" = {
-      description = "Home is where the configs are"
+    "mailmon" = {
+      description = "Email management and monitoring with JMAP"
       topics      = []
     }
     "jetson-orin-kernel-builder" = {
       description = "Build the Linux kernel and modules on board the Jetson AGX Orin, Orin Nano or Orin NX"
       topics      = []
     }
-    "kimi-code" = {
-      description = "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-      topics      = []
-    }
-    "leoxlin" = {
-      description = "Welcome to my github profile"
-      topics      = []
-    }
-    "lfg" = {
-      description = "Fastest way to get your agent ducks in order"
-      topics      = []
-    }
-    "mailmon" = {
-      description = "Email management and monitoring with JMAP"
-      topics      = []
-    }
-    "mise-agents" = {
-      description = ""
-      topics      = []
-    }
-    "ponytail" = {
-      description = "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote."
-      topics      = []
-    }
-    "praxis" = {
-      description = "A harness agnostic agent orchestration framework"
-      topics      = []
-    }
-    "superpowers" = {
-      description = "An agentic skills framework & software development methodology that works."
-      topics      = []
-    }
 
-    // Archived Repos
+    // Archived
     "naive-bayes-food" = {
       description = "Tastiest application of the naive bayes classifier"
       topics      = []
