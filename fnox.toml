@@ -1,0 +1,10 @@
+# Secrets for this project. Safe to commit.
+[providers]
+onepass = { type = "1password", vault = "Actions" }
+
+[secrets]
+GITHUB_TOKEN = { provider = "onepass", value = "infra-github/GITHUB_TOKEN", description = "OpenTofu GitHub provider token" }
+AWS_ACCESS_KEY_ID = { provider = "onepass", value = "infra-github/AWS_ACCESS_KEY_ID", description = "OpenTofu S3 state bucket access key" }
+AWS_SECRET_ACCESS_KEY = { provider = "onepass", value = "infra-github/AWS_SECRET_ACCESS_KEY", description = "OpenTofu S3 state bucket secret key" }
+AWS_ENDPOINT_URL_S3 = { provider = "onepass", value = "infra-github/AWS_ENDPOINT_URL_S3", description = "OpenTofu S3 state bucket endpoint" }
+AWS_REGION = { provider = "onepass", value = "infra-github/AWS_REGION", description = "OpenTofu S3 state bucket region" }
