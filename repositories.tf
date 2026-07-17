@@ -5,6 +5,10 @@ locals {
       description = "Welcome to my github profile"
       topics      = []
     }
+    "leoxlin.com" = {
+      description = "Personal website"
+      topics      = []
+    }
     "diataxis-documentation-framework" = {
       description = "A systematic approach to creating better documentation."
       topics      = []
