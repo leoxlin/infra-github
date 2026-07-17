@@ -63,7 +63,7 @@ locals {
       topics      = ["homelab", "trmnl", "js"]
     }
     "homelab" = {
-      description = "Mirrored from https://git.hydrahmlb.dev/leoxlin/homelab"
+      description = "Infrastructure and configuration for my homelab"
       topics      = ["homelab", "infra", "ansible", "k8s"]
     }
     "mailmon" = {
