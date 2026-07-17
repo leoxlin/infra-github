@@ -3,6 +3,7 @@
 onepass = { type = "1password", vault = "Actions" }
 
 [secrets]
+OP_ACCOUNT = { provider = "onepass", value = "infra-github/OP_ACCOUNT", description = "Onepass account ID for the provider" }
 GITHUB_TOKEN = { provider = "onepass", value = "infra-github/GITHUB_TOKEN", description = "OpenTofu GitHub provider token" }
 AWS_ACCESS_KEY_ID = { provider = "onepass", value = "infra-github/AWS_ACCESS_KEY_ID", description = "OpenTofu S3 state bucket access key" }
 AWS_SECRET_ACCESS_KEY = { provider = "onepass", value = "infra-github/AWS_SECRET_ACCESS_KEY", description = "OpenTofu S3 state bucket secret key" }

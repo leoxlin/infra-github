@@ -9,6 +9,8 @@ OpenTofu configuration that manages my GitHub repositories and profile
   from `mise.toml`
 - A GitHub token (classic PAT or fine-grained) with `repo` and `admin:public_key`
   scopes
+- 1Password's **Settings → Developer → Integrate with other apps** option
+  enabled for local OpenTofu runs
 
 ## Secrets
 
@@ -19,18 +21,21 @@ material, and is safe to commit.
 
 The `Actions` vault must contain:
 
-- An `infra-github` item with a `GITHUB_TOKEN` field.
-- A `hydra-tf-state-c1518487dba2` item with `keyID`, `applicationKey`,
-  `region`, and `endpoint` fields. The endpoint must include `https://`, for
-  example `https://s3.us-west-004.backblazeb2.com`.
+- An `infra-github` item with `GITHUB_TOKEN`, `AWS_ACCESS_KEY_ID`,
+  `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, and `AWS_ENDPOINT_URL_S3` fields.
+- A `leoxlin.com` item with `AWS_ACCESS_KEY_ID` and
+  `AWS_SECRET_ACCESS_KEY` fields.
+
+OpenTofu also manages those AWS fields as repository-level GitHub Actions
+secrets for their matching repositories. Put these fields in a `GitHub Actions`
+section so the 1Password Terraform provider can read them.
 
 Adjust the values in `fnox.toml` if your item or field names differ (supported
 formats: `Item`, `Item/field`, `op://Vault/Item/field`).
 
-```sh
-# Secrets are injected as env vars for a single command:
-fnox exec -- tofu plan
-```
+Fnox only injects the `default` mise environment, selected by `.miserc.toml`.
+Override it with `MISE_ENV=ci` in CI, which receives its environment from
+GitHub Actions secrets instead.
 
 An `age` provider is also configured for secrets that should live encrypted
 in git (`fnox set KEY value --provider age`); its private key is at

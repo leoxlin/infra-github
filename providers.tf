@@ -6,6 +6,10 @@ terraform {
       source  = "integrations/github"
       version = "~> 6.13"
     }
+    onepassword = {
+      source  = "1Password/onepassword"
+      version = "~> 3.3"
+    }
   }
 
   backend "s3" {
@@ -26,4 +30,7 @@ provider "github" {
   # Token is read from GITHUB_TOKEN env var, or set `github_token` in
   # terraform.tfvars. Needs scopes: repo, admin:org (if managing orgs),
   # admin:public_key (for SSH keys), delete_repo (to destroy repos).
+}
+
+provider "onepassword" {
 }
