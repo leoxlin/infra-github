@@ -23,12 +23,15 @@ The `Actions` vault must contain:
 
 - An `infra-github` item with `GITHUB_TOKEN`, `AWS_ACCESS_KEY_ID`,
   `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, and `AWS_ENDPOINT_URL_S3` fields.
+- An `app.renovate-hydra` item with `GITHUB_APP_CLIENT_ID` and
+  `GITHUB_APP_PRIVATE_KEY` fields.
 - A `leoxlin.com` item with `AWS_ACCESS_KEY_ID` and
   `AWS_SECRET_ACCESS_KEY` fields.
 
 OpenTofu also manages those AWS fields as repository-level GitHub Actions
-secrets for their matching repositories. Put these fields in a `GitHub Actions`
-section so the 1Password Terraform provider can read them.
+secrets for their matching repositories, plus the Renovate app fields as
+`homelab` repository secrets. Put these fields in a `GitHub Actions` section so
+the 1Password Terraform provider can read them.
 
 Adjust the values in `fnox.toml` if your item or field names differ (supported
 formats: `Item`, `Item/field`, `op://Vault/Item/field`).

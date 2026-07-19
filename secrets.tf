@@ -3,7 +3,7 @@ data "onepassword_vault" "actions" {
 }
 
 data "onepassword_item" "repository" {
-  for_each = toset(["infra-github", "leoxlin.com"])
+  for_each = toset(["app:renovate-hydra", "repo:infra-github", "repo:leoxlin.com"])
 
   vault = data.onepassword_vault.actions.uuid
   title = each.key
@@ -13,37 +13,47 @@ locals {
   actions_secrets = {
     "infra-github/AWS_ACCESS_KEY_ID" = {
       repository = github_repository.this.name
-      item       = "infra-github"
+      item       = "repo:infra-github"
       name       = "AWS_ACCESS_KEY_ID"
     }
     "infra-github/AWS_SECRET_ACCESS_KEY" = {
       repository = github_repository.this.name
-      item       = "infra-github"
+      item       = "repo:infra-github"
       name       = "AWS_SECRET_ACCESS_KEY"
     }
     "infra-github/AWS_ENDPOINT_URL_S3" = {
       repository = github_repository.this.name
-      item       = "infra-github"
+      item       = "repo:infra-github"
       name       = "AWS_ENDPOINT_URL_S3"
     }
     "infra-github/AWS_REGION" = {
       repository = github_repository.this.name
-      item       = "infra-github"
+      item       = "repo:infra-github"
       name       = "AWS_REGION"
     }
     "infra-github/OP_SERVICE_ACCOUNT_TOKEN" = {
       repository = github_repository.this.name
-      item       = "infra-github"
+      item       = "repo:infra-github"
       name       = "OP_SERVICE_ACCOUNT_TOKEN"
+    }
+    "homelab/RENOVATE_APP_CLIENT_ID" = {
+      repository = github_repository.public["homelab"].name
+      item       = "app:renovate-hydra"
+      name       = "RENOVATE_APP_CLIENT_ID"
+    }
+    "homelab/RENOVATE_APP_PRIVATE_KEY" = {
+      repository = github_repository.public["homelab"].name
+      item       = "app:renovate-hydra"
+      name       = "RENOVATE_APP_PRIVATE_KEY"
     }
     "leoxlin.com/AWS_ACCESS_KEY_ID" = {
       repository = github_repository.public["leoxlin.com"].name
-      item       = "leoxlin.com"
+      item       = "repo:leoxlin.com"
       name       = "AWS_ACCESS_KEY_ID"
     }
     "leoxlin.com/AWS_SECRET_ACCESS_KEY" = {
       repository = github_repository.public["leoxlin.com"].name
-      item       = "leoxlin.com"
+      item       = "repo:leoxlin.com"
       name       = "AWS_SECRET_ACCESS_KEY"
     }
   }
