@@ -3,7 +3,7 @@ data "onepassword_vault" "actions" {
 }
 
 data "onepassword_item" "repository" {
-  for_each = toset(["app:renovate-hydra", "repo:infra-github", "repo:leoxlin.com"])
+  for_each = toset(["app:renovate-hydra", "repo:homelab", "repo:infra-github", "repo:leoxlin.com"])
 
   vault = data.onepassword_vault.actions.uuid
   title = each.key
@@ -45,6 +45,16 @@ locals {
       repository = github_repository.public["homelab"].name
       item       = "app:renovate-hydra"
       name       = "RENOVATE_APP_PRIVATE_KEY"
+    }
+    "homelab/DOCKERHUB_USERNAME" = {
+      repository = github_repository.public["homelab"].name
+      item       = "repo:homelab"
+      name       = "DOCKERHUB_USERNAME"
+    }
+    "homelab/DOCKERHUB_TOKEN" = {
+      repository = github_repository.public["homelab"].name
+      item       = "repo:homelab"
+      name       = "DOCKERHUB_TOKEN"
     }
     "leoxlin.com/AWS_ACCESS_KEY_ID" = {
       repository = github_repository.public["leoxlin.com"].name
