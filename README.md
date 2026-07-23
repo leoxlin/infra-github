@@ -15,8 +15,7 @@ fnox exec -- tofu plan
 ```
 
 `fnox.toml` supplies OpenTofu's environment from the 1Password `Actions` vault.
-Repository secret mappings live in `secrets.tf`; fields read by that file must
-be in each item's `GitHub Actions` section.
+Repository secret mappings live in `secrets.tf`.
 
 ## Usage
 

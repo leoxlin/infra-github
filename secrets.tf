@@ -3,7 +3,7 @@ data "onepassword_vault" "actions" {
 }
 
 data "onepassword_item" "repository" {
-  for_each = toset(["app:renovate-hydra", "repo:homelab", "repo:infra-github", "repo:leoxlin.com"])
+  for_each = toset([for secret in values(local.actions_secrets) : secret.item])
 
   vault = data.onepassword_vault.actions.uuid
   title = each.key
@@ -74,5 +74,5 @@ resource "github_actions_secret" "this" {
 
   repository  = each.value.repository
   secret_name = each.value.name
-  value       = data.onepassword_item.repository[each.value.item].section_map["GitHub Actions"].field_map[each.value.name].value
+  value       = merge([for section in values(data.onepassword_item.repository[each.value.item].section_map) : section.field_map]...)[each.value.name].value
 }
